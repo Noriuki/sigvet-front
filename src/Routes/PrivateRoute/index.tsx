@@ -13,7 +13,7 @@ export const PrivateRoute: React.FC<Props> = ({
   component: RouteComponent,
   roles,
 }) => {
-  const validateUser = () => {
+  const validateUser = (): string => {
     let user = getCurrentUser();
     if (user) {
       let decodedToken: {
@@ -30,19 +30,18 @@ export const PrivateRoute: React.FC<Props> = ({
         logout();
       } else {
         return roles.includes(ROLE[`${user.role}` as keyof typeof ROLE])
-          ? true
-          : false;
+          ? "PERMITIDO"
+          : "BLOQUADO";
       }
-    } else {
-      <Navigate to="/login" />;
     }
+    return "LOGIN";
   };
 
   const NewRoute = () => {
-    const valid = validateUser();
-    if (!!valid) {
+    const action = validateUser();
+    if (action === "PERMITIDO") {
       return <RouteComponent />;
-    } else {
+    } else if (action === "BLOQUEADO") {
       Swal.fire({
         title: "Acesso bloqueado!",
         text: "Você não tem permissão para acessar essa funcionalidade.",
@@ -51,6 +50,7 @@ export const PrivateRoute: React.FC<Props> = ({
       }).then((v) => window.location.reload());
       return <Navigate to="/" />;
     }
+    return <Navigate to="/login" />;
   };
 
   return <NewRoute />;
