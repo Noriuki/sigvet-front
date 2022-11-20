@@ -24,6 +24,7 @@ const useUserConfiguration = (id: string | null) => {
     homeData,
     homeGraphData,
     userDataStatus,
+    loadUserList,
     setUserDataStatus,
   } = useVeterinary();
   // USER
@@ -32,7 +33,7 @@ const useUserConfiguration = (id: string | null) => {
     firstName: "",
     lastName: "",
     email: "",
-    role: ROLE.receptionist,
+    role: "admin" as ROLE,
     crmv: "",
     active: 1,
   });
@@ -68,7 +69,7 @@ const useUserConfiguration = (id: string | null) => {
       firstName: "",
       lastName: "",
       email: "",
-      role: ROLE.receptionist,
+      role: "admin" as ROLE,
       crmv: "",
       active: 1,
     });
@@ -101,6 +102,7 @@ const useUserConfiguration = (id: string | null) => {
         });
       }
     }
+    loadUserList();
     navigate(-1);
   };
 

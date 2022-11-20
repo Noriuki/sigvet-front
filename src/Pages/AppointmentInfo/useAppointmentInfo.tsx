@@ -94,6 +94,7 @@ const useAppointmentInfo = (id: string | null) => {
   /* save data */
   const handleSave = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    appointmentInfo.price = parseFloat(appointmentInfo.price as string);
     if (appointmentDataStatus === "create") {
       const res = await appointmentRequest.create(appointmentInfo);
 

@@ -196,7 +196,7 @@ export default function AppointmentTable() {
     if (id) {
       const { result } = await appointmentServiceRequest.get(id);
       setAppointmentServiceDataStatus("edit");
-      setAppointmentServiceCategory(result.category);
+      setAppointmentServiceCategory(result.serviceType.category);
       navigate(`${location.pathname}/${id}`);
     }
   };

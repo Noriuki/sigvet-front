@@ -45,6 +45,7 @@ interface IContext {
   };
   userDataStatus: TDataStatus;
   setUserDataStatus: React.Dispatch<React.SetStateAction<TDataStatus>>;
+  loadUserList: () => Promise<void>;
 }
 
 export const VeterinaryClinicContext = createContext<IContext>({} as IContext);
@@ -228,6 +229,7 @@ export function VeterinaryClinicProvider(props: any) {
         homeGraphData,
         userDataStatus,
         setUserDataStatus,
+        loadUserList,
       }}
     >
       {children}

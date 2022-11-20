@@ -1,7 +1,8 @@
 import { KeyboardReturn as KeyboardReturnIcon } from "@mui/icons-material";
-import { Button, MenuItem, TextField } from "@mui/material";
+import { Button, InputAdornment, MenuItem, TextField } from "@mui/material";
 import { DesktopDateTimePicker } from "@mui/x-date-pickers";
 import React from "react";
+import { NumericFormat } from "react-number-format";
 import { useNavigate, useParams } from "react-router-dom";
 import ContentContainer from "../../../Components/ContentContainer";
 import ActionButtons from "../../../Components/CustomPanel/ActionButtons";
@@ -28,7 +29,14 @@ const AppointmentInfoTab: React.FC<IProps> = (props) => {
   return (
     <form onSubmit={handleSave} style={{ width: "100%", height: "100%" }}>
       <ContentContainer padding="1rem">
-        <ContentContainer padding="1rem" height="85%" width="48%" shadow>
+        <ContentContainer
+          padding="1rem"
+          height="85%"
+          width="48%"
+          justifyContent="space-around"
+          alignContent="space-around"
+          shadow
+        >
           <DesktopDateTimePicker
             ampm={false}
             onChange={handleDateChange}
@@ -116,6 +124,26 @@ const AppointmentInfoTab: React.FC<IProps> = (props) => {
                   <MenuItem key={e.id} value={e.id}>{`${e.name}`}</MenuItem>
                 ))}
               </TextField>
+              <NumericFormat
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">R$</InputAdornment>
+                  ),
+                }}
+                decimalScale={2}
+                fixedDecimalScale
+                customInput={TextField}
+                disabled={appointmentDataStatus !== "create"}
+                label="Preço"
+                key="price"
+                name="price"
+                InputLabelProps={{ shrink: true }}
+                variant="outlined"
+                size="small"
+                value={appointmentInfo?.price}
+                onChange={handleInfoChange}
+                style={{ width: "100%" }}
+              />
             </>
           ) : (
             <>

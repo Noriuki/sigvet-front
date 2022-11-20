@@ -54,6 +54,7 @@ const UserManagementInfo: React.FC<IProps> = (props) => {
               label="Senha"
               InputLabelProps={{ shrink: true }}
               name="password"
+              required={userDataStatus === "create" ? true : false}
               onChange={handleInfoChange}
               type={showPassword ? "text" : "password"}
               variant="outlined"
@@ -83,6 +84,9 @@ const UserManagementInfo: React.FC<IProps> = (props) => {
               label="CRMV"
               InputLabelProps={{ shrink: true }}
               name="crmv"
+              required={
+                selectedUserInfo?.role === ("doctor" as ROLE) ? true : false
+              }
               onChange={handleInfoChange}
               value={selectedUserInfo.crmv}
               type="text"

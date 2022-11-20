@@ -62,7 +62,7 @@ const useAppointmentServiceInfo = (id: string | null) => {
       Swal.fire({
         icon: "success",
         title: "Relatório enviado!",
-        text: "Verifique na sua caixa de entrada",
+        text: "Verifique sua caixa de entrada",
       });
     }
   };

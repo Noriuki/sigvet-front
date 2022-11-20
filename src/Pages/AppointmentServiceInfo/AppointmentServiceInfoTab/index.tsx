@@ -9,6 +9,7 @@ import ActionButtons from "../../../Components/CustomPanel/ActionButtons";
 import CustomRTE from "../../../Components/CustomRTE";
 import { EnumStatus, IServiceType } from "../../../Services/Types";
 import useAppointmentServiceInfo from "../useAppointmentServiceInfo";
+import EmailIcon from "@mui/icons-material/Email";
 interface IProps {
   children?: React.ReactNode;
 }
@@ -57,6 +58,7 @@ const AppointmentServiceInfoTab: React.FC<IProps> = () => {
               size="small"
               label="Template"
               required
+              disabled={appointmentServiceDataStatus !== "create"}
               value={
                 appointmentServiceDataStatus === "create"
                   ? template?.id
@@ -79,7 +81,7 @@ const AppointmentServiceInfoTab: React.FC<IProps> = () => {
               decimalScale={2}
               fixedDecimalScale
               customInput={TextField}
-              disabled={appointmentServiceDataStatus === "view"}
+              disabled={appointmentServiceDataStatus !== "create"}
               label="Preço"
               key="price"
               name="price"
@@ -209,6 +211,7 @@ const AppointmentServiceInfoTab: React.FC<IProps> = () => {
               variant="outlined"
               onChange={handleInfoChange}
               required
+              disabled={appointmentServiceDataStatus !== "create"}
               size="small"
               label="Preço"
               value={appointmentServiceInfo?.price}
@@ -223,10 +226,11 @@ const AppointmentServiceInfoTab: React.FC<IProps> = () => {
               size="small"
               label="Template"
               required
+              disabled={appointmentServiceDataStatus !== "create"}
               value={
                 appointmentServiceDataStatus === "create"
                   ? template?.id
-                  : template?.name
+                  : appointmentServiceInfo?.serviceType?.name
               }
               onChange={handleTemplate}
             >
@@ -246,23 +250,22 @@ const AppointmentServiceInfoTab: React.FC<IProps> = () => {
           {appointmentServiceDataStatus !== "view" ? (
             <ActionButtons />
           ) : (
-            <>
+            <ContentContainer
+              height="auto"
+              justifyContent="flex-end"
+              borderRadius="0"
+            >
               <Button
                 variant="contained"
-                style={{ marginLeft: "auto" }}
+                style={{ marginRight: "10px" }}
                 onClick={handleMailService}
               >
-                <KeyboardReturnIcon style={{ marginRight: "1rem" }} /> Enviar
-                Relatório
+                <EmailIcon style={{ marginRight: "1rem" }} /> Enviar Relatório
               </Button>
-              <Button
-                variant="contained"
-                style={{ marginLeft: "auto" }}
-                onClick={() => navigate(-1)}
-              >
+              <Button variant="contained" onClick={() => navigate(-1)}>
                 <KeyboardReturnIcon style={{ marginRight: "1rem" }} /> Voltar
               </Button>
-            </>
+            </ContentContainer>
           )}
         </ContentContainer>
       )}

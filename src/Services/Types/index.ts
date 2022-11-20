@@ -50,7 +50,7 @@ export interface IAppointment {
   status: EnumStatus | string;
   topic: string;
   notes: string;
-  price: number;
+  price: number | string;
   payment_status: EnumPaymentStatus | string;
   serviceTypes: IServiceType[];
 }
