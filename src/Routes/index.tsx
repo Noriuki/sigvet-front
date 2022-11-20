@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes as Switch } from "react-router-dom";
+import { HashRouter, Route, Routes as Switch } from "react-router-dom";
 import Appointment from "../Pages/Appointment";
 import AppointmentInfo from "../Pages/AppointmentInfo";
 import AppointmentService from "../Pages/AppointmentService";
@@ -21,7 +21,7 @@ import { PrivateRoute } from "./PrivateRoute";
 
 export default function Routes() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Switch>
         <Route
           path="/"
@@ -225,6 +225,6 @@ export default function Routes() {
 
         <Route path="*" element={<NotFound />} />
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
