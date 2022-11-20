@@ -1,5 +1,6 @@
 import { IAppointment } from "../../../Types";
-import {
+import apiService, {
+  authHeader,
   createRequest,
   deleteRequest,
   getAllRequest,
@@ -12,7 +13,12 @@ const _url = `appointment`;
 const appointmentRequest = {
   create: (data: IAppointment) => createRequest(_url, data),
   getAll: (id: number) => getAllRequest(_url, id),
-  get: (id: number) => getRequest(`${_url}/detail`, id),
+  get: async (id: number, clincId: number): Promise<any> => {
+    const reqRes = await apiService.get(`${_url}/detail/${id}/${clincId}`, {
+      headers: authHeader(),
+    });
+    return reqRes?.data;
+  },
   getServiceList: (id: number) =>
     getRequest(`service/getAllByAppointmentId`, id),
   delete: (id: number) => deleteRequest(_url, id),

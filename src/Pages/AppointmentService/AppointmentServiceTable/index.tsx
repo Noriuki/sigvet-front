@@ -184,9 +184,11 @@ export default function AppointmentTable() {
 
   const searchAppointment = async (id: number) => {
     try {
-      const { result } = await appointmentRequest.get(id);
-
-      return result;
+      const clinicId = getClinicId();
+      if (clinicId) {
+        const { result } = await appointmentRequest.get(id, clinicId);
+        return result;
+      }
     } catch (error) {
       return false;
     }

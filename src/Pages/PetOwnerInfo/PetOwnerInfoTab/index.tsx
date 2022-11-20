@@ -41,6 +41,7 @@ const PetOwnerInfoTab: React.FC<IProps> = (props) => {
             variant="outlined"
             size="small"
             required
+            disabled={petOwnerDataStatus === "view"}
             style={{ width: "100%" }}
           />
           <TextField
@@ -53,6 +54,7 @@ const PetOwnerInfoTab: React.FC<IProps> = (props) => {
             variant="outlined"
             size="small"
             required
+            disabled={petOwnerDataStatus === "view"}
             style={{ width: "100%" }}
           />
           <PatternFormat
@@ -67,6 +69,7 @@ const PetOwnerInfoTab: React.FC<IProps> = (props) => {
             InputLabelProps={{ shrink: true }}
             variant="outlined"
             required
+            disabled={petOwnerDataStatus === "view"}
             style={{ width: "100%" }}
           />
         </ContentContainer>
@@ -90,6 +93,7 @@ const PetOwnerInfoTab: React.FC<IProps> = (props) => {
             label="Celular"
             variant="outlined"
             required
+            disabled={petOwnerDataStatus === "view"}
             style={{ width: "48%" }}
           />
           <PatternFormat
@@ -103,6 +107,7 @@ const PetOwnerInfoTab: React.FC<IProps> = (props) => {
             size="small"
             label="Telefone"
             variant="outlined"
+            disabled={petOwnerDataStatus === "view"}
             style={{ width: "48%" }}
           />
           <TextField
@@ -114,6 +119,7 @@ const PetOwnerInfoTab: React.FC<IProps> = (props) => {
             value={petOwnerInfo.email}
             variant="outlined"
             size="small"
+            disabled={petOwnerDataStatus === "view"}
             style={{ width: "100%" }}
           />
         </ContentContainer>
@@ -137,6 +143,7 @@ const PetOwnerInfoTab: React.FC<IProps> = (props) => {
               label="CEP"
               variant="outlined"
               required
+              disabled={petOwnerDataStatus === "view"}
               style={{ width: "40%" }}
             />
             <TextField
@@ -148,6 +155,7 @@ const PetOwnerInfoTab: React.FC<IProps> = (props) => {
               onChange={handleAddressChange}
               size="small"
               required
+              disabled={petOwnerDataStatus === "view"}
               style={{ width: "40%" }}
             />
             <TextField
@@ -159,6 +167,7 @@ const PetOwnerInfoTab: React.FC<IProps> = (props) => {
               onChange={handleAddressChange}
               size="small"
               required
+              disabled={petOwnerDataStatus === "view"}
               style={{ width: "16%" }}
             />
           </ContentContainer>
@@ -173,6 +182,7 @@ const PetOwnerInfoTab: React.FC<IProps> = (props) => {
               onChange={handleAddressChange}
               size="small"
               required
+              disabled={petOwnerDataStatus === "view"}
               style={{ width: "40%" }}
             />
             <TextField
@@ -184,6 +194,7 @@ const PetOwnerInfoTab: React.FC<IProps> = (props) => {
               onChange={handleAddressChange}
               size="small"
               required
+              disabled={petOwnerDataStatus === "view"}
               style={{ width: "40%" }}
             />
             <TextField
@@ -195,6 +206,7 @@ const PetOwnerInfoTab: React.FC<IProps> = (props) => {
               onChange={handleAddressChange}
               size="small"
               required
+              disabled={petOwnerDataStatus === "view"}
               style={{ width: "16%" }}
             />
           </ContentContainer>

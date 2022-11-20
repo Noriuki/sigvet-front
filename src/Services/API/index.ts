@@ -8,7 +8,7 @@ const apiService = axios.create({
     "Content-Type": "application/json",
   },
 });
-const authHeader = () => {
+export const authHeader = () => {
   if (getCurrentUser()) {
     return { Authorization: `Bearer ${getCurrentUser()?.token}` };
   }

@@ -74,7 +74,7 @@ const AppointmentFinanceTab: React.FC<IProps> = ({ serviceList }) => {
         >
           <h5 style={{ fontSize: "1.2rem", margin: "5px 0" }}>Valor total</h5>
           <h5 style={{ fontSize: "1.2rem", margin: "5px 0" }}>
-            {formatCurrency(appointmentInfo.price)}
+            {formatCurrency(parseFloat(appointmentInfo.price as string))}
           </h5>
         </div>
       </ContentContainer>

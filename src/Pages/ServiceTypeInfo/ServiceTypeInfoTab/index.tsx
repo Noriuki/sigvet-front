@@ -25,23 +25,31 @@ const ServiceTypeInfoTab: React.FC<IProps> = (props) => {
 
   return (
     <form onSubmit={handleSave} style={{ width: "100%", height: "100%" }}>
-      {serviceTypeCategory == "Product" || serviceTypeCategory == "Petshop" ? (
-        <ContentContainer flexDirection="column" padding="1rem">
+      {serviceTypeCategory === "Product" ||
+      serviceTypeCategory === "Petshop" ? (
+        <ContentContainer
+          flexDirection="column"
+          padding="1rem"
+          justifyContent="center"
+          alignContent="normal"
+        >
           <ContentContainer
             height="48%"
             width="38%"
             padding="1rem"
             alignContent="space-around"
+            margin="auto"
             shadow
           >
             <TextField
               disabled={serviceTypeDataStatus === "view"}
-              label={serviceTypeCategory == "Product" ? "Produto" : "Serviço"}
+              label={serviceTypeCategory === "Product" ? "Produto" : "Serviço"}
               name="name"
               key="name"
               InputLabelProps={{ shrink: true }}
               variant="outlined"
               size="small"
+              value={serviceTypeInfo.name}
               onChange={handleInfoChange}
               style={{ width: "100%" }}
             />
@@ -63,11 +71,22 @@ const ServiceTypeInfoTab: React.FC<IProps> = (props) => {
               InputLabelProps={{ shrink: true }}
               variant="outlined"
               size="small"
+              value={serviceTypeInfo.defaultPrice}
               onChange={handleInfoChange}
               style={{ width: "100%", height: "1.4375em" }}
             />
           </ContentContainer>
-          {serviceTypeDataStatus !== "view" && <ActionButtons />}
+          {serviceTypeDataStatus !== "view" ? (
+            <ActionButtons />
+          ) : (
+            <Button
+              variant="contained"
+              style={{ marginLeft: "auto" }}
+              onClick={() => navigate(-1)}
+            >
+              <KeyboardReturnIcon style={{ marginRight: "1rem" }} /> Voltar
+            </Button>
+          )}
         </ContentContainer>
       ) : (
         <ContentContainer padding="1rem">
@@ -87,7 +106,7 @@ const ServiceTypeInfoTab: React.FC<IProps> = (props) => {
               variant="outlined"
               size="small"
               label={
-                serviceTypeCategory == "Cirurgy"
+                serviceTypeCategory === "Cirurgy"
                   ? "Nome da cirurgia"
                   : "Nome do exame"
               }

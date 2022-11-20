@@ -35,8 +35,8 @@ const ServiceTypeInfo: React.FC<Props> = (props) => {
       )}
       {serviceTypeCategory === "Petshop" && (
         <CustomPanel
-          tabsHeader={[{ icon: <VaccinesOutlinedIcon />, label: "petshop" }]}
-          tabsContent={[<SpaIcon />]}
+          tabsHeader={[{ icon: <SpaIcon />, label: "petshop" }]}
+          tabsContent={[<ServiceTypeInfoTab />]}
         />
       )}
     </Layout>

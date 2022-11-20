@@ -41,8 +41,14 @@ const useAppointmentInfo = (id: string | null) => {
   }, []);
 
   const loadAppointment = async () => {
-    const { result } = await appointmentRequest.get(parseInt(id as string));
-    setAppointmentInfo(result);
+    const clinicId = getClinicId();
+    if (clinicId) {
+      const { result } = await appointmentRequest.get(
+        parseInt(id as string),
+        clinicId
+      );
+      setAppointmentInfo(result);
+    }
   };
 
   const loadServiceList = async () => {

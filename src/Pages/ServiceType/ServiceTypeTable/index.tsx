@@ -141,12 +141,16 @@ export default function AppointmentTable() {
     }
   };
 
-  const handleEdit = (id: number) => {
+  const handleEdit = async (id: number) => {
+    const { result } = await serviceTypeRequest.get(id);
+    setServiceTypeCategory(result.category);
     setServiceTypeDataStatus("edit");
     navigate(`${location.pathname}/${id}`);
   };
 
-  const handleView = (id: number) => {
+  const handleView = async (id: number) => {
+    const { result } = await serviceTypeRequest.get(id);
+    setServiceTypeCategory(result.category);
     setServiceTypeDataStatus("view");
     navigate(`${location.pathname}/${id}`);
   };
