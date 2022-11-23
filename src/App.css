@@ -55,7 +55,7 @@ h1, h2
   flex: 1;
 }
 .ql-snow{
-  overflow: scroll!important;
+  overflow: auto!important;
 }
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
