@@ -31,7 +31,7 @@ export const PrivateRoute: React.FC<Props> = ({
       } else {
         return roles.includes(ROLE[`${user.role}` as keyof typeof ROLE])
           ? "PERMITIDO"
-          : "BLOQUADO";
+          : "BLOQUEADO";
       }
     }
     return "LOGIN";
@@ -39,6 +39,7 @@ export const PrivateRoute: React.FC<Props> = ({
 
   const NewRoute = () => {
     const action = validateUser();
+
     if (action === "PERMITIDO") {
       return <RouteComponent />;
     } else if (action === "BLOQUEADO") {

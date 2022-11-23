@@ -22,6 +22,11 @@ const columns = (
 ): GridColDef[] => {
   return [
     {
+      field: "id",
+      headerName: "ID",
+      width: 100,
+    },
+    {
       field: "firstName",
       headerName: "Nome",
       flex: 1,

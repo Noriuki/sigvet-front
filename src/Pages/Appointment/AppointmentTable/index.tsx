@@ -23,6 +23,11 @@ const columns = (
 ): GridColDef[] => {
   return [
     {
+      field: "id",
+      headerName: "ID",
+      width: 100,
+    },
+    {
       field: "topic",
       headerName: "Tópico",
       flex: 1,
@@ -36,6 +41,14 @@ const columns = (
             {format(new Date(params.value as string), "dd/MM/yyyy HH:mm")}
           </span>
         );
+      },
+      flex: 1,
+    },
+    {
+      field: "animal",
+      headerName: "Paciente",
+      renderCell: (params: GridRenderCellParams<any, any, any>) => {
+        return <span>{params.row.animal.name}</span>;
       },
       flex: 1,
     },

@@ -12,7 +12,12 @@ const _url = `appointment`;
 
 const appointmentRequest = {
   create: (data: IAppointment) => createRequest(_url, data),
-  getAll: (id: number) => getAllRequest(_url, id),
+  getAll: async (clincId: number): Promise<any> => {
+    const reqRes = await apiService.get(`${_url}/all/detail/${clincId}`, {
+      headers: authHeader(),
+    });
+    return reqRes?.data;
+  },
   get: async (id: number, clincId: number): Promise<any> => {
     const reqRes = await apiService.get(`${_url}/detail/${id}/${clincId}`, {
       headers: authHeader(),

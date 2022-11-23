@@ -110,7 +110,7 @@ const AppointmentServiceInfoTab: React.FC<IProps> = () => {
       ) : (
         <ContentContainer padding="1rem">
           <ContentContainer
-            height="48%"
+            height="85%"
             width="48%"
             padding="1rem"
             alignContent="space-around"
