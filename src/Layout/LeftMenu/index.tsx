@@ -95,8 +95,11 @@ const LeftMenu: React.FC<Props> = (props) => {
       {MenuItems.map((item, index: number) => (
         <Link
           style={{
-            backgroundColor: selectedIndexMenu === index ? 'var(--primary-400)' : 'var(--primary-300)',
-            textDecoration: "none"
+            backgroundColor:
+              selectedIndexMenu === index
+                ? "var(--primary-400)"
+                : "var(--primary-300)",
+            textDecoration: "none",
           }}
           key={item.text}
           to={item.route}

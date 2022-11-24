@@ -1,13 +1,11 @@
-body 
-{
+body {
   font-size: 16px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 * {
   box-sizing: border-box;
 }
-:root 
-{
+:root {
   --primary-200: hsl(159, 86%, 55%);
   --primary-300: hsl(159, 86%, 45%);
   --primary-400: hsl(159, 86%, 35%);
@@ -21,24 +19,31 @@ body
   --gray-300: hsl(0, 0%, 75%);
   --gray-400: hsl(0, 0%, 65%);
   --titles: hsl(0, 0%, 20%);
-  --dark-shadow: 0px 0px 5px 2px hsla(0, 0%, 0%, 0.150);
+  --dark-shadow: 0px 0px 5px 2px hsla(0, 0%, 0%, 0.15);
   --white-shadow: 0px 0px 5px 2px hsla(0, 0%, 93%, 100);
-  --secondary-font: 'Poppins', sans-serif;
+  --secondary-font: "Poppins", sans-serif;
 }
-button, a 
-{
+button,
+a {
   cursor: pointer;
 }
-h1, h2, h3, h4, h5, h6, p, span, a {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a {
   color: var(--titles);
 }
-h1, h2 
-{
+h1,
+h2 {
   font-family: var(--secondary-font);
 }
 
-.MuiTimelineItem-missingOppositeContent::before
-{
+.MuiTimelineItem-missingOppositeContent::before {
   display: none;
 }
 
@@ -54,8 +59,8 @@ h1, h2
 .ql-container {
   flex: 1;
 }
-.ql-snow{
-  overflow: auto!important;
+.ql-snow {
+  overflow: auto !important;
 }
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
