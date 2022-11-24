@@ -87,92 +87,68 @@ const AppointmentInfoTab: React.FC<IProps> = (props) => {
             required
             disabled={appointmentDataStatus === "view"}
           />
-          {appointmentDataStatus === "create" ? (
-            <>
-              <TextField
-                select
-                InputLabelProps={{ shrink: true }}
-                style={{ width: "100%" }}
-                name="userId"
-                variant="outlined"
-                size="small"
-                label="Médico"
-                required
-                value={appointmentInfo.userId}
-                onChange={handleInfoChange}
-              >
-                {veterinaryList.map((e) => (
-                  <MenuItem
-                    key={e.id}
-                    value={e.id}
-                  >{`${e.firstName} ${e.lastName}`}</MenuItem>
-                ))}
-              </TextField>
-              <TextField
-                select
-                InputLabelProps={{ shrink: true }}
-                style={{ width: "100%" }}
-                name="animalId"
-                variant="outlined"
-                size="small"
-                label="Paciente"
-                required
-                onChange={handleInfoChange}
-                value={appointmentInfo?.animalId}
-              >
-                {petSelectList.map((e) => (
-                  <MenuItem key={e.id} value={e.id}>{`${e.name}`}</MenuItem>
-                ))}
-              </TextField>
-              <NumericFormat
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">R$</InputAdornment>
-                  ),
-                }}
-                decimalScale={2}
-                fixedDecimalScale
-                customInput={TextField}
-                disabled={appointmentDataStatus !== "create"}
-                label="Preço"
-                key="price"
-                name="price"
-                InputLabelProps={{ shrink: true }}
-                variant="outlined"
-                size="small"
-                value={appointmentInfo?.price}
-                onChange={handleInfoChange}
-                style={{ width: "100%" }}
-              />
-            </>
-          ) : (
-            <>
-              <TextField
-                InputLabelProps={{ shrink: true }}
-                style={{ width: "100%" }}
-                name="userId"
-                variant="outlined"
-                size="small"
-                label="Médico"
-                required
-                value={appointmentInfo?.user?.firstName}
-                onChange={handleInfoChange}
-                disabled
-              />
-              <TextField
-                InputLabelProps={{ shrink: true }}
-                style={{ width: "100%" }}
-                name="animalId"
-                variant="outlined"
-                size="small"
-                label="Paciente"
-                required
-                onChange={handleInfoChange}
-                value={appointmentInfo?.animal?.name}
-                disabled
-              />
-            </>
-          )}
+
+          <>
+            <TextField
+              select
+              InputLabelProps={{ shrink: true }}
+              style={{ width: "100%" }}
+              name="userId"
+              variant="outlined"
+              size="small"
+              label="Médico"
+              required
+              value={appointmentInfo.userId}
+              onChange={handleInfoChange}
+            >
+              {veterinaryList.map((e) => (
+                <MenuItem
+                  key={e.id}
+                  value={e.id}
+                >{`${e.firstName} ${e.lastName}`}</MenuItem>
+              ))}
+            </TextField>
+            <TextField
+              select
+              InputLabelProps={{ shrink: true }}
+              style={{ width: "100%" }}
+              name="animalId"
+              variant="outlined"
+              size="small"
+              label="Paciente"
+              required
+              onChange={handleInfoChange}
+              value={appointmentInfo?.animalId}
+            >
+              {petSelectList.map((e) => (
+                <MenuItem key={e.id} value={e.id}>{`${e.name}`}</MenuItem>
+              ))}
+            </TextField>
+            <NumericFormat
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">R$</InputAdornment>
+                ),
+              }}
+              decimalScale={2}
+              fixedDecimalScale
+              customInput={TextField}
+              disabled={appointmentDataStatus !== "create"}
+              label="Preço"
+              key="base_price"
+              name="base_price"
+              InputLabelProps={{ shrink: true }}
+              variant="outlined"
+              size="small"
+              value={
+                appointmentDataStatus !== "create"
+                  ? appointmentInfo?.price
+                  : appointmentInfo?.base_price
+              }
+              onChange={handleInfoChange}
+              style={{ width: "100%" }}
+            />
+          </>
         </ContentContainer>
 
         <div style={{ display: "flex", width: "48%", height: "85%" }}>

@@ -26,6 +26,7 @@ const useAppointmentInfo = (id: string | null) => {
     status: EnumStatus.Aberto,
     topic: "",
     notes: "",
+    base_price: 0,
     price: 0,
     payment_status: EnumPaymentStatus.Aberto,
     serviceTypes: [],
@@ -93,6 +94,7 @@ const useAppointmentInfo = (id: string | null) => {
       topic: "",
       notes: "",
       price: 0,
+      base_price: 0,
       payment_status: EnumPaymentStatus.Aberto,
       serviceTypes: [],
     });
@@ -100,8 +102,12 @@ const useAppointmentInfo = (id: string | null) => {
   /* save data */
   const handleSave = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    appointmentInfo.price = parseFloat(appointmentInfo.price as string);
+
     if (appointmentDataStatus === "create") {
+      appointmentInfo.base_price = parseFloat(
+        appointmentInfo.base_price as string
+      );
+      appointmentInfo.price = appointmentInfo.base_price;
       const res = await appointmentRequest.create(appointmentInfo);
 
       if (res.success === true) {
@@ -112,6 +118,10 @@ const useAppointmentInfo = (id: string | null) => {
         });
       }
     } else if (appointmentDataStatus === "edit") {
+      appointmentInfo.base_price = parseFloat(
+        appointmentInfo.base_price as string
+      );
+      appointmentInfo.price = parseFloat(appointmentInfo.price as string);
       const res = await appointmentRequest.update(
         parseInt(id as string),
         appointmentInfo

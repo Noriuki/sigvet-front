@@ -1,5 +1,6 @@
 import { IPet } from "../../../Types";
-import {
+import apiService, {
+  authHeader,
   createRequest,
   deleteRequest,
   getAllRequest,
@@ -11,7 +12,12 @@ const _url = `animal`;
 
 const petRequest = {
   create: (data: IPet) => createRequest(_url, data),
-  getAll: (id: number) => getAllRequest(_url, id),
+  getAll: async (clincId: number): Promise<any> => {
+    const reqRes = await apiService.get(`${_url}/getall/${clincId}`, {
+      headers: authHeader(),
+    });
+    return reqRes?.data;
+  },
   get: (id: number) => getRequest(`${_url}/detail`, id),
   getServiceList: (id: number) => getRequest(`service/getAllByAnimalId`, id),
   getAppointmentList: (id: number) =>

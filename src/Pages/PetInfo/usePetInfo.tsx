@@ -20,7 +20,7 @@ const usePetInfo = (id: string | null) => {
     sex: "",
     castrated: false,
     age: "",
-    birthDate: "",
+    birthDate: null,
     speciesId: "",
     raceId: "",
     size: "",
@@ -84,7 +84,7 @@ const usePetInfo = (id: string | null) => {
       sex: "",
       castrated: false,
       age: "",
-      birthDate: "",
+      birthDate: null,
       speciesId: "",
       raceId: "",
       size: "",
@@ -98,10 +98,9 @@ const usePetInfo = (id: string | null) => {
     e.preventDefault();
     const postBody = {
       ...petInfo,
-      birthDate:
-        petInfo?.birthDate !== ""
-          ? format(new Date(petInfo?.birthDate as string), "yyyy-MM-dd")
-          : "",
+      birthDate: petInfo?.birthDate
+        ? format(new Date(petInfo?.birthDate as string), "yyyy-MM-dd")
+        : null,
       age: parseFloat(petInfo?.age as string),
     };
     if (petDataStatus === "create") {

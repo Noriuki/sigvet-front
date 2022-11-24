@@ -20,6 +20,22 @@ const columns = (
   return [
     { field: "name", headerName: "Nome", flex: 1 },
     {
+      field: "especies",
+      headerName: "Espécie",
+      renderCell: (params: GridRenderCellParams<any, any, any>) => {
+        return <span>{params.row.species?.name}</span>;
+      },
+      flex: 1,
+    },
+    {
+      field: "race",
+      headerName: "Raça",
+      renderCell: (params: GridRenderCellParams<any, any, any>) => {
+        return <span>{params.row.race?.name}</span>;
+      },
+      flex: 1,
+    },
+    {
       field: "sex",
       headerName: "sexo",
       renderCell: (params: GridRenderCellParams<any, any, any>) => {

@@ -35,7 +35,7 @@ export interface IPet {
   age: number | string | "";
   size: string;
   castrated: boolean;
-  birthDate: string;
+  birthDate: string | null;
   fur: string;
 }
 
@@ -51,6 +51,7 @@ export interface IAppointment {
   topic: string;
   notes: string;
   price: number | string;
+  base_price: number | string;
   payment_status: EnumPaymentStatus | string;
   serviceTypes: IServiceType[];
 }
