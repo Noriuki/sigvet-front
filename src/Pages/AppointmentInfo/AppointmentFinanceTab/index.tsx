@@ -72,7 +72,27 @@ const AppointmentFinanceTab: React.FC<IProps> = ({ serviceList }) => {
             justifyContent: "space-around",
           }}
         >
-          <h5 style={{ fontSize: "1.2rem", margin: "5px 0" }}>Valor total</h5>
+          <h5
+            style={{
+              fontSize: "1.2rem",
+              margin: "5px 0",
+              color: "var(--primary-300)",
+            }}
+          >
+            Valor base
+          </h5>
+          <h5 style={{ fontSize: "1.2rem", margin: "5px 0 10px 0" }}>
+            {formatCurrency(parseFloat(appointmentInfo.base_price as string))}
+          </h5>
+          <h5
+            style={{
+              fontSize: "1.2rem",
+              margin: "5px 0",
+              color: "var(--secondary-300)",
+            }}
+          >
+            Valor total
+          </h5>
           <h5 style={{ fontSize: "1.2rem", margin: "5px 0" }}>
             {formatCurrency(parseFloat(appointmentInfo.price as string))}
           </h5>
