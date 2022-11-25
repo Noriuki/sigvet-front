@@ -98,6 +98,7 @@ const AppointmentInfoTab: React.FC<IProps> = (props) => {
               size="small"
               label="Médico"
               required
+              disabled={appointmentDataStatus !== "create"}
               value={appointmentInfo.userId}
               onChange={handleInfoChange}
             >
@@ -117,6 +118,7 @@ const AppointmentInfoTab: React.FC<IProps> = (props) => {
               size="small"
               label="Paciente"
               required
+              disabled={appointmentDataStatus !== "create"}
               onChange={handleInfoChange}
               value={appointmentInfo?.animalId}
             >
