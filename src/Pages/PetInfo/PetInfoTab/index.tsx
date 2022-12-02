@@ -40,7 +40,7 @@ const PetInfoTab: React.FC<IProps> = () => {
             <TextField
               select
               InputLabelProps={{ shrink: true }}
-              value={petInfo.ownerId}
+              value={petInfo?.ownerId}
               onChange={handleInfoChange}
               label="Dono"
               name="ownerId"
@@ -57,7 +57,7 @@ const PetInfoTab: React.FC<IProps> = () => {
           ) : (
             <TextField
               InputLabelProps={{ shrink: true }}
-              value={petInfo.owner?.firstName}
+              value={petInfo?.owner?.firstName}
               onChange={handleInfoChange}
               label="Dono"
               name="ownerId"
@@ -71,7 +71,7 @@ const PetInfoTab: React.FC<IProps> = () => {
           <TextField
             label="Nome"
             name="name"
-            value={petInfo.name}
+            value={petInfo?.name}
             InputLabelProps={{ shrink: true }}
             onChange={handleInfoChange}
             variant="outlined"
@@ -90,7 +90,7 @@ const PetInfoTab: React.FC<IProps> = () => {
         >
           <DesktopDatePicker
             onChange={handleDateChange}
-            value={petInfo.birthDate || null}
+            value={petInfo?.birthDate || null}
             label="Data de Nascimento"
             inputFormat="dd/MM/yyyy"
             disabled={petDataStatus === "view"}
@@ -132,7 +132,7 @@ const PetInfoTab: React.FC<IProps> = () => {
             select
             disabled={petDataStatus === "view"}
             InputLabelProps={{ shrink: true }}
-            value={petInfo.speciesId}
+            value={petInfo?.speciesId}
             onChange={handleInfoChange}
             label="Espécie"
             name="speciesId"
@@ -142,7 +142,7 @@ const PetInfoTab: React.FC<IProps> = () => {
           >
             {speciesList.map((species) => (
               <MenuItem key={species.id} value={species.id}>
-                {species.name}
+                {species?.name}
               </MenuItem>
             ))}
           </TextField>
@@ -150,7 +150,7 @@ const PetInfoTab: React.FC<IProps> = () => {
             select
             disabled={petDataStatus === "view"}
             InputLabelProps={{ shrink: true }}
-            value={petInfo.raceId}
+            value={petInfo?.raceId}
             onChange={handleInfoChange}
             label="Raça"
             name="raceId"
@@ -159,10 +159,10 @@ const PetInfoTab: React.FC<IProps> = () => {
             style={{ width: "40%" }}
           >
             {raceList.map((race) => {
-              if (race.speciesId === petInfo.speciesId) {
+              if (race?.speciesId === petInfo?.speciesId) {
                 return (
                   <MenuItem key={race.id} value={race.id}>
-                    {race.name}
+                    {race?.name}
                   </MenuItem>
                 );
               }
@@ -183,7 +183,7 @@ const PetInfoTab: React.FC<IProps> = () => {
             name="size"
             variant="outlined"
             size="small"
-            value={petInfo.size || ""}
+            value={petInfo?.size || ""}
             label="Porte"
             onChange={handleInfoChange}
             select
@@ -199,7 +199,7 @@ const PetInfoTab: React.FC<IProps> = () => {
             variant="outlined"
             size="small"
             select
-            value={petInfo.sex || ""}
+            value={petInfo?.sex || ""}
             onChange={handleInfoChange}
             InputLabelProps={{ shrink: true }}
             style={{ width: "28%" }}
@@ -210,7 +210,7 @@ const PetInfoTab: React.FC<IProps> = () => {
           <TextField
             label="Pelagem"
             disabled={petDataStatus === "view"}
-            value={petInfo.fur}
+            value={petInfo?.fur}
             name="fur"
             onChange={handleInfoChange}
             InputLabelProps={{ shrink: true }}
@@ -225,7 +225,7 @@ const PetInfoTab: React.FC<IProps> = () => {
             variant="outlined"
             size="small"
             disabled={petDataStatus === "view"}
-            value={petInfo.castrated}
+            value={petInfo?.castrated}
             InputLabelProps={{ shrink: true }}
             style={{ width: "28%" }}
             onChange={handleInfoChange}
