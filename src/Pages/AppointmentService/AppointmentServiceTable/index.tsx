@@ -57,15 +57,6 @@ const columns = (
       },
     },
     {
-      field: "status",
-      headerName: "Situação",
-      renderCell: (params: GridRenderCellParams<any, any, any>) => {
-        const status = params.value as EnumStatus;
-        return <span>{EnumStatus[status]}</span>;
-      },
-      width: 150,
-    },
-    {
       field: "view",
       headerName: "Visualizar",
       sortable: false,
