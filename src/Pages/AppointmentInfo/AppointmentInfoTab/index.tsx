@@ -40,7 +40,7 @@ const AppointmentInfoTab: React.FC<IProps> = (props) => {
           <DesktopDateTimePicker
             ampm={false}
             onChange={handleDateChange}
-            value={appointmentInfo.date || null}
+            value={appointmentInfo?.date || null}
             label="Data da consulta"
             inputFormat="dd/MM/yyyy HH:mm"
             renderInput={(params: any) => (
@@ -65,7 +65,7 @@ const AppointmentInfoTab: React.FC<IProps> = (props) => {
             size="small"
             style={{ width: "48%" }}
             onChange={handleInfoChange}
-            value={appointmentInfo.status}
+            value={appointmentInfo?.status}
             required
             select
             disabled={appointmentDataStatus === "view"}
@@ -82,7 +82,7 @@ const AppointmentInfoTab: React.FC<IProps> = (props) => {
             variant="outlined"
             size="small"
             style={{ width: "100%" }}
-            value={appointmentInfo.topic}
+            value={appointmentInfo?.topic}
             onChange={handleInfoChange}
             required
             disabled={appointmentDataStatus === "view"}
@@ -99,7 +99,7 @@ const AppointmentInfoTab: React.FC<IProps> = (props) => {
               label="Médico"
               required
               disabled={appointmentDataStatus !== "create"}
-              value={appointmentInfo.userId}
+              value={appointmentInfo?.userId}
               onChange={handleInfoChange}
             >
               {veterinaryList.map((e) => (
@@ -157,7 +157,7 @@ const AppointmentInfoTab: React.FC<IProps> = (props) => {
           <CustomRTE
             disabled={appointmentDataStatus === "view"}
             contentCallback={handleText}
-            value={appointmentInfo.notes || ""}
+            value={appointmentInfo?.notes || ""}
           />
         </div>
 

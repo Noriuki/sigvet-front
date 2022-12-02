@@ -31,7 +31,7 @@ const columns = (
         };
         return (
           <IconButton onClick={handleView} aria-label="edit">
-            <VisibilityIcon />
+            <VisibilityIcon style={{ color: "blue" }} />
           </IconButton>
         );
       },
@@ -48,7 +48,7 @@ const columns = (
         };
         return (
           <IconButton onClick={handleEdit} aria-label="edit">
-            <EditIcon />
+            <EditIcon style={{ color: "green" }} />
           </IconButton>
         );
       },
@@ -65,7 +65,7 @@ const columns = (
         };
         return (
           <IconButton onClick={handleDelete} aria-label="delete">
-            <DeleteIcon />
+            <DeleteIcon style={{ color: "red" }} />
           </IconButton>
         );
       },

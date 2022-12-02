@@ -7,6 +7,7 @@ interface IDisplayCard {
 
   title: string;
   value: string | number;
+  percentage?: number;
 }
 
 export default function DisplayCard(props: IDisplayCard) {
@@ -37,12 +38,28 @@ export default function DisplayCard(props: IDisplayCard) {
           width: "100%",
           margin: "10px 0",
           textAlign: "left",
-          color: "var(--titles)",
+          color: "var(--primary-400)",
           fontFamily: "var(--secondary-font)",
         }}
       >
         {props.value}
       </h5>
+      {props?.percentage && (
+        <h5
+          style={{
+            fontSize: "1.8rem",
+            width: "100%",
+            margin: "10px 0",
+            textAlign: "left",
+            color: props?.percentage > 0 ? "green" : "red",
+            fontFamily: "var(--secondary-font)",
+          }}
+        >
+          {props?.percentage > 0
+            ? `↑ ${props?.percentage} %`
+            : `↓ ${props?.percentage * -1} %`}
+        </h5>
+      )}
     </ContentContainer>
   );
 }

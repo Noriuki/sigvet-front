@@ -169,7 +169,7 @@ export function VeterinaryClinicProvider(props: any) {
     const newGraphData = financeGraphData;
     if (dataList.length > 0) {
       for (const data of dataList) {
-        newGraphData.datasets[0].data[data.month] = data.total;
+        newGraphData.datasets[0].data[data.month - 1] = data.total;
       }
     }
     setFinanceGraphData(newGraphData);

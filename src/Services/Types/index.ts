@@ -138,8 +138,11 @@ export interface ISelectService {
 
 export interface IDashboardData {
   appointmentsOfMonth: number;
+  appointmentPercentage?: number;
   animalsOfMonth: number;
+  animalsPercentage?: number;
   servicesOfMonth: number;
+  servicePercentage?: number;
   appointmentsOfYear: {
     month: number;
     appointment_count: number;
@@ -148,8 +151,11 @@ export interface IDashboardData {
 
 export interface IFinanceData {
   totalRevenueOfMonth: number;
+  totalRevenuePercentage?: number;
   averageAppointmentPriceOfMonth: number;
+  averageAppointmentPercentage?: number;
   averageServicePriceOfMonth: number;
+  averageServicePercentage?: number;
   averageRevenueOfYear: {
     month: number;
     total: number;

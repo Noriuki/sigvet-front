@@ -38,16 +38,19 @@ const Home: React.FC<Props> = (props) => {
       <ContentContainer overflow="visible">
         <ContentContainer overflow="visible" height="35%" width="100%">
           <DisplayCard
-            title="Novos Pacientes"
+            title="Novos Pacientes (mês atual)"
             value={homeData.animalsOfMonth}
+            percentage={homeData?.animalsPercentage}
           />
           <DisplayCard
-            title="Consultas no mês"
+            title="Consultas (mês atual)"
             value={homeData.appointmentsOfMonth}
+            percentage={homeData?.appointmentPercentage}
           />
           <DisplayCard
-            title="Serviços no mês"
+            title="Serviços (mês atual)"
             value={homeData.servicesOfMonth}
+            percentage={homeData?.servicePercentage}
           />
         </ContentContainer>
         <ContentContainer height="60%" padding="1rem" shadow>

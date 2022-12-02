@@ -61,6 +61,7 @@ const PetInfoTab: React.FC<IProps> = () => {
               onChange={handleInfoChange}
               label="Dono"
               name="ownerId"
+              disabled={petDataStatus === "view"}
               variant="outlined"
               size="small"
               style={{ width: "100%" }}
@@ -75,6 +76,7 @@ const PetInfoTab: React.FC<IProps> = () => {
             onChange={handleInfoChange}
             variant="outlined"
             size="small"
+            disabled={petDataStatus === "view"}
             style={{ width: "100%" }}
           />
         </ContentContainer>
@@ -91,6 +93,7 @@ const PetInfoTab: React.FC<IProps> = () => {
             value={petInfo.birthDate || null}
             label="Data de Nascimento"
             inputFormat="dd/MM/yyyy"
+            disabled={petDataStatus === "view"}
             renderInput={(params: any) => (
               <TextField
                 {...params}
@@ -114,6 +117,7 @@ const PetInfoTab: React.FC<IProps> = () => {
             }}
             value={petInfo?.age as number}
             type="number"
+            disabled={petDataStatus === "view"}
             inputProps={{
               maxLength: 99,
               step: "0.1",
@@ -126,6 +130,7 @@ const PetInfoTab: React.FC<IProps> = () => {
           />
           <TextField
             select
+            disabled={petDataStatus === "view"}
             InputLabelProps={{ shrink: true }}
             value={petInfo.speciesId}
             onChange={handleInfoChange}
@@ -143,6 +148,7 @@ const PetInfoTab: React.FC<IProps> = () => {
           </TextField>
           <TextField
             select
+            disabled={petDataStatus === "view"}
             InputLabelProps={{ shrink: true }}
             value={petInfo.raceId}
             onChange={handleInfoChange}
@@ -171,6 +177,7 @@ const PetInfoTab: React.FC<IProps> = () => {
           shadow
         >
           <TextField
+            disabled={petDataStatus === "view"}
             InputLabelProps={{ shrink: true }}
             style={{ width: "28%" }}
             name="size"
@@ -188,6 +195,7 @@ const PetInfoTab: React.FC<IProps> = () => {
           <TextField
             label="Sexo"
             name="sex"
+            disabled={petDataStatus === "view"}
             variant="outlined"
             size="small"
             select
@@ -201,6 +209,7 @@ const PetInfoTab: React.FC<IProps> = () => {
           </TextField>
           <TextField
             label="Pelagem"
+            disabled={petDataStatus === "view"}
             value={petInfo.fur}
             name="fur"
             onChange={handleInfoChange}
@@ -215,6 +224,7 @@ const PetInfoTab: React.FC<IProps> = () => {
             name="castrated"
             variant="outlined"
             size="small"
+            disabled={petDataStatus === "view"}
             value={petInfo.castrated}
             InputLabelProps={{ shrink: true }}
             style={{ width: "28%" }}

@@ -48,25 +48,28 @@ const ClinicFinance: React.FC<Props> = (props) => {
       <ContentContainer overflow="visible">
         <ContentContainer overflow="visible" height="35%" width="100%">
           <DisplayCard
-            title="Receita total"
+            title="Receita total (mês atual)"
             value={`R$ ${
               Math.fround(financeData.totalRevenueOfMonth).toFixed(2) || 0
             }`}
+            percentage={financeData.totalRevenuePercentage}
           />
           <DisplayCard
-            title="Média por consulta"
+            title="Média por consulta (mês atual)"
             value={`R$ ${
               Math.fround(financeData.averageAppointmentPriceOfMonth).toFixed(
                 2
               ) || 0
             }`}
+            percentage={financeData?.averageAppointmentPercentage}
           />
           <DisplayCard
-            title="Média por serviço"
+            title="Média por serviço (mês atual)"
             value={`R$ ${
               Math.fround(financeData.averageServicePriceOfMonth).toFixed(2) ||
               0
             }`}
+            percentage={financeData?.averageServicePercentage}
           />
         </ContentContainer>
         <ContentContainer height="60%" padding="1rem" shadow>
